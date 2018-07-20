@@ -161,12 +161,16 @@ MyLinkedList.prototype.deleteAtIndex = function(index) {
  * obj.deleteAtIndex(index)
  */
  var obj =  new MyLinkedList();
-obj.addAtHead(56);
-obj.get(1)
-obj.addAtHead(41);
-obj.addAtTail(98);
-obj.get(3);
-obj.addAtIndex(1, 33);
+obj.addAtHead(1);
+obj.addAtTail(3);
+obj.addAtIndex(1, 2);
+obj.get(1);
+obj.deleteAtIndex(1);
+obj.get(1);
+
+
+["MyLinkedList", "addAtHead", "addAtTail", "addAtIndex", "get", "deleteAtIndex", "get"]
+[[], [1], [3], [1, 2], [1], [1], [1]]
 // console.log(obj.length);
 // obj.deleteAtIndex(1);
 // obj.addAtIndex(1, 9);
