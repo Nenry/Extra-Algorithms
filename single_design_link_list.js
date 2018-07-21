@@ -96,7 +96,20 @@ MyLinkedList.prototype.addAtIndex = function (index, val) {
  * @return {void}
  */
 MyLinkedList.prototype.deleteAtIndex = function (index) {
+  if (index >= this.length || index < 0) return;
+  if (index === 0 ) {
+    this.head = this.head.next;
+    this.length--;
+    return;
+  }
 
+  let currNode = this.head;
+  for (let i = 0; i < index; ++i) {
+    currNode = currNode.next;
+  }
+
+  currNode.next = currNode.next.next;
+  this.length--;
 };
 
 /** 
