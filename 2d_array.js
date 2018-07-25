@@ -1,3 +1,4 @@
+//find all the sums in the 2d array That is a hour glass matrix or I matrix
 function hourglassSum(arr) {
 
   let maxSum = null;
