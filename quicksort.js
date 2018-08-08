@@ -6,7 +6,7 @@ function qs(array, startIdx = 0, length = array.length) {
   let pivot = array[startIdx];
   let barrierIdx = startIdx;
 
-  for (let i = startIdx + 1; i <= length; i++) {
+  for (let i = startIdx + 1; i <= length + startIdx; i++) {
     if (pivot > array[i]) {
       barrierIdx++;
       let swap1 = array[barrierIdx];
@@ -27,3 +27,6 @@ function qs(array, startIdx = 0, length = array.length) {
   return array;
 
 }
+
+
+console.log(qs([2, 6, 5, 8, 1, 67, 0, 3, 23]));
