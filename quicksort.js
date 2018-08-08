@@ -1,4 +1,4 @@
-function qs(array, startIdx=0, length=array.length) {
+function qs(array, startIdx = 0, length = array.length) {
   if (length <= 1) {
     return array;
   }
@@ -17,7 +17,7 @@ function qs(array, startIdx=0, length=array.length) {
 
   array[startIdx] = array[barrierIdx];
   array[barrierIdx] = pivot;
-  
+
 
   let left = barrierIdx - startIdx;
   let right = length - (left + 1);
@@ -27,20 +27,3 @@ function qs(array, startIdx=0, length=array.length) {
   return array;
 
 }
-
-console.log(qs([5, 4, 3, 2, 1]));
-
-// function activityNotifications(expenditure, d) {
-//  let notifications = 0;
-//  let start_idx = d + 1;
-//  let trails = expenditure.slice(0, d);
-
-//   if (d >= expenditure.length); {
-//     return notifications;
-//   }
-
-
-
-
-
-// }
