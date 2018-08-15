@@ -1,7 +1,7 @@
 function alternatingCharacters(s) {
 
   let deletions = 0;
-  console.log(s)
+  console.log(s);
   let str = s.length;
   // console.log(str)
 
