@@ -4,9 +4,22 @@
 var hammingDistance = function (x, y) {
 let xBit = x.toString(2);
 let yBit = y.toString(2);
-
-while (xBit.length < 8 || xBit.length < yBit.length) {
+let diffCount = 0;
+while (xBit.length < yBit.length) {
   xBit = "0" + xBit;
 }
+
+while (yBit.length < xBit.length) {
+  yBit = "0" + yBit;
+}
+
+for (let i = 0; i < xBit.length; i++) {
+  if (xBit[i] !== yBit[i]) {
+    diffCount++;
+  }
+}
+
+return diffCount;
+
 
 };
