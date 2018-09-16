@@ -22,9 +22,9 @@ var judgeCircle = function (moves) {
   }
 
   if (!vertLoc && !horzLoc) {
-    return true
+    return true;
   } else {
-    return false
+    return false;
   }
 
 
