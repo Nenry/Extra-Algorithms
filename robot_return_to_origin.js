@@ -8,14 +8,14 @@ var judgeCircle = function (moves) {
   const vertMoves = {
     U: 1,
     D: -1
-  }
+  };
 
   for (let i = 0; i < moves.length; i++) {
 
     if (sideMoves[moves[i]]) {
-      horzLoc += sideMoves[moves[i]]
+      horzLoc += sideMoves[moves[i]];
     } else if (vertMoves[moves[i]]) {
-      vertLoc += vertMoves[moves[i]]
+      vertLoc += vertMoves[moves[i]];
     }
 
 
