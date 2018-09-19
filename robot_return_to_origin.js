@@ -4,7 +4,7 @@ var judgeCircle = function (moves) {
   const sideMoves = {
     R: 1,
     L: -1
-  }
+  };
   const vertMoves = {
     U: 1,
     D: -1
