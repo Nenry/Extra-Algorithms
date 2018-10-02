@@ -23,8 +23,8 @@ class LinkedList {
     return this.head.next === this.tail && this.tail.prev === this.head;
   }
 
-  append(value) {
-    const newNode = new Node(value);
+  append(key, value) {
+    const newNode = new Node(key, value);
     this.tail.prev.next = newNode;
     newNode.prev = this.tail.prev;
 
@@ -32,8 +32,8 @@ class LinkedList {
     newNode.next = this.tail;
   }
 
-  prepend(value) {
-    const newNode = new Node(value);
+  prepend(key, value) {
+    const newNode = new Node(key, value);
 
     this.head.next.prev = newNode;
     newNode.next = this.head.next;
@@ -45,29 +45,30 @@ class LinkedList {
 
   }
 
-  find(value, node = this.head.next) {
-    if (node === null) {
-      return false;
+  find(key) {
+    let startNode = this.head;
+
+    while (startNode.key !== key || startNode.next === null) {
+      startNode = startNode.next;
     }
 
-    if (node.value === value) {
-      return node;
-    } else {
-      return this.find(value, node.next);
+    if (startNode.next) {
+      return startNode.value;
     }
+    
 
   }
 
-  remove(value, node = this.head.next) {
-    if (node === null) {
-      return null;
+  remove(key) {
+    let startNode = this.head;
+
+    while (startNode.key !== key || startNode.next === null) {
+      startNode = startNode.next;
     }
 
-    if(node.value === value) {
-      node.remove();
-      return node;
-    } else {
-      return this.remove(value, node.next);
+    if(startNode.next) {
+      startNode.remove();
+      return startNode;
     }
   }
 
