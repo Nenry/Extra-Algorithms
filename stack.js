@@ -69,3 +69,28 @@ class Stack {
     return popped;
   }
 }
+
+
+class StackQueue {
+  //implement a queue only using pop and push (stack)
+  //queue is first in first out
+  constructor() {
+    this.in = [];
+    this.out = [];
+  }
+
+  queue(val) {
+    this.in.push(val);
+  }
+
+  dequeue() {
+    if (this.out.length === 0) {
+      while (this.in.length > 0) {
+        this.out.push(this.in.pop());
+      }
+    }
+
+    return this.out.pop();
+  }
+
+}
