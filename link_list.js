@@ -69,6 +69,12 @@ class LinkedList {
   }
 
 
+  addTailNode(node) {
+    this.tail.next = node;
+    this.tail = node;
+  }
+
+
   remove(value, node = this.head) {
 
     if (node === null) {
@@ -106,11 +112,50 @@ const c = new LinkedList();
 c.addAtHead('cyes', 6);
 c.addAtTail('lastz', 12);
 
+a.addTailNode(c.head);
+b.addTailNode(c.head);
+// console.log(a.head.next);
+// console.log(a.head.next.next);
+// console.log(a.head.next.next.next);
+// console.log(a.head.next.next.next.next);
+// console.log(a.length);
 
-console.log(a.head.next);
-console.log(a.head.next.next);
-console.log(a.head.next.next.next);
-console.log(a.head.next.next.next.next);
-console.log(a.length);
+function mergePoint(linkedlist1, linkedlist2) {
+  //find the difference in length.
+  //make the longer length start at the difference then compare node values. if they equal then that is the merge point 
+  //if difference is positive then linkedlist1 needs to be iterated to start points
+  //if difference is negative then linkedlist2 needs to be iterated to start point
+  // if difference is 0 then start point is not needed
+  let difference = linkedlist1.length - linkedlist2.length;
+  let start1 = linkedlist1.head;
+  
+  let start2 = linkedlist2.head;
+
+  if (difference > 0) {
+    while (difference > 0) {
+      start1 = start1.next;
+      difference--;
+    }
+  } else if (difference < 0) {
+    start2 = start2.next;
+    difference++;
+  }
+
+  while (start1 || start2) {
+    if (start1.value === start2.value) {
+      return start1;
+    } else {
+      start1 = start1.next;
+      start2 = start2.next;
+    }
+  }
+
+
+  console.log('No merge point');
+
+}
+
+const mergeNode = mergePoint(a, b);
+console.log(mergeNode);
 
 
