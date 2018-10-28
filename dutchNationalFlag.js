@@ -39,6 +39,34 @@ function dutchNationalFlag(arr) {
 }
 
 
+//same thing but with odds and evens
+// Input an array of integers. Output: rearrange the integers in place such that odd integers appear before even integers
+
+function oddEvenFlag(arr) {
+  let low = 0;
+  let high = arr.length - 1;
+  let i = 0;
+  while (low < high) {
+    if (arr[i] % 2 === 1) {
+      let temp = arr[low];
+      arr[low] = arr[i];
+      arr[i] = temp;
+      low++;
+      i++;
+    } else if (arr[i] % 2 === 0) {
+      let temp = arr[high];
+      arr[high] = arr[i];
+      arr[i] = temp;
+      high--;
+    } 
+  }
+
+  return arr;
+}
+console.log(oddEvenFlag([1, 2, 3, 4, 5, 6, 7, 8]));
+
+
+
 
 
 
@@ -78,5 +106,5 @@ function dutchNationalFlag(arr) {
 
 // }
 
-console.log(dutchNationalFlag([2, 0, 0, 1, 2, 1]));
-console.log(dutchNationalFlag([2, 0, 0, 1, 2, 1]));
+// console.log(dutchNationalFlag([2, 0, 0, 1, 2, 1]));
+// console.log(dutchNationalFlag([2, 0, 0, 1, 2, 1]));
