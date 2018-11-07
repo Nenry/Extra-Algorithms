@@ -9,10 +9,28 @@
             //         /
             //         7
 
+
+//Notes:
+//Create a Node class with its value and left and right
+// Binary Search Tree, should have left side is equal to or less than values while right side is greater than parent node
+// if node has two children then need to go one left then all the way right to replace it
+
+// if no children then just replace or delete 
+// create a BST
+//traverse BFS or DFS, if root is not within range then return null;
+
+
 class Node {
   constructor(value) {
     this.value = value;
     this.left = null;
     this.right = null;
+  }
+}
+
+
+class BST {
+  constructor(node) {
+    this.root = node;
   }
 }

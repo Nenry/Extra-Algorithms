@@ -4,7 +4,7 @@ const circle = r => {
   
 };
 
-function solveIt(r) {
+function circle(r) {
   const results = [];
 
   for (let x = 1; x <= r; x++) {
