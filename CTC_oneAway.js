@@ -41,6 +41,8 @@ function oneReplace(str1, str2) {
 }
 
 function oneEdit(shortStr, longStr) {
+
+  //O(n) for time complexity since we will iterate through once
   let shorti = 0;
   let longi = 0;
   let edit = false;
@@ -60,26 +62,78 @@ function oneEdit(shortStr, longStr) {
   return edit;
 }
 
-function oneAway(str1, str2) {
+function improvedOneEdit(str1, str2) {
+  let long;
+  let i = 0;
+  let short;
+  let j = 0;
+  let edited = false;
+    // O(n) for checking length
+  if (str1.length > str2.length) {
+    long = str1;
+    short = str2;
+  } else {
+    short = str1;
+    long = str2;
+  }
 
+
+  //still O(n) because will go through each index once
+  while (i < long.length || j < short.length) {
+    if (long[i] !== short[j]) {
+      if (edited) {
+        return false;
+      }
+
+      edited = true;
+      i++;
+    } else {
+      i++;
+      j++;
+    }
+
+  }
+
+  return edited;
+
+}
+
+// function oldoneAway(str1, str2) {
+//     //if one letter is replaced
+//   if (str1.length === str2.length) {
+//     if (str1 === str2) {
+//       return true;
+//     } else {
+//       return oneReplace(str1, str2);
+//     }
+//   } else if (str1.length - 1 === str2.length) {
+//     return oneEdit(str2, str1);
+//   } else if (str1.length === str2.length - 1) {
+//     return oneEdit(str1, str2);
+//   }
+
+//   return false;
+
+// }
+
+function oneAway(str1, str2) {
+    //if one letter is replaced
   if (str1.length === str2.length) {
     if (str1 === str2) {
       return true;
     } else {
       return oneReplace(str1, str2);
     }
-  } else if (str1.length - 1 === str2.length) {
-    return oneEdit(str2, str1);
-  } else if (str1.length === str2.length - 1) {
-    return oneEdit(str1, str2);
-  }
+  } else if (Math.abs(str1.length - str2.length)) {
+    return improvedOneEdit(str2, str1);
+  } 
 
   return false;
 
 }
 
-console.log(oneAway('pale', 'ple'));
-console.log(oneAway('pales', 'pale'));
-console.log(oneAway('pale', 'bale'));
-console.log(oneAway('pale', 'bake'));
-console.log(oneAway('pale', 'pale'));
+console.log(oneAway('pale', 'ple')); // true
+console.log(oneAway('pales', 'pale')); // true
+console.log(oneAway('pale', 'bale')); //true 
+console.log(oneAway('pale', 'bake')); //false p is 1 difference, k is another difference
+console.log(oneAway('pale', 'pale')); // true
