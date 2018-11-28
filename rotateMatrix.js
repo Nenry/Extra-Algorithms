@@ -21,7 +21,7 @@ function rotateMatrix(arrMatrix) {
       //iterate through each column in that row 
       let offset = j - layer;
       let top = arrMatrix[layer][j];
-      // console.log(top);
+      
       //  left to top;
       arrMatrix[layer][j] = arrMatrix[last - offset][layer];
 
