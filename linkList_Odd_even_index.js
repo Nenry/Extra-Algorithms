@@ -11,26 +11,39 @@ function linkListEvenOdd(rootNode) {
   const odds = [];
 
   let node = rootNode;
-
+  
   while (node) {
+    console.log(node.val);
     evens.push(node);
     if (node.next) {
       odds.push(node.next);
     }
-
-    if (node.next.next) {
+    
+    console.log('node before', node.val);
+    if (node.next && node.next.next) {
+      console.log('hi');
       node = node.next.next;
+    } else {
+      node = undefined;
     }
+    // console.log('node after', node.val);
 
   }
+
+  // console.log('evens', evens);
+  // console.log('odds', odds);
+// console.log('hello');
 
   let resultNode = evens.shift();
   while (evens.length > 0) {
     resultNode.next = evens.shift();
+    resultNode = resultNode.next;
   }
 
   resultNode.next = odds.shift();
   resultNode = resultNode.next;
+
+  // console.log(resultNode);
 
   while (odds.length > 0) {
     resultNode.next = odds.shift(); 
@@ -50,5 +63,13 @@ a.next = b;
 b.next = c;
 c.next = d;
 d.next = e;
-console.log(a.next);
-console.log(b.val);
+// console.log(a);
+// console.log(b.val);
+
+linkListEvenOdd(a);
+
+console.log(a);
+
+console.log(e.next.val);
+console.log(b.next.val);
+// console.log(c.next.val);
