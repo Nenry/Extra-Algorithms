@@ -66,10 +66,46 @@ d.next = e;
 // console.log(a);
 // console.log(b.val);
 
-linkListEvenOdd(a);
+// linkListEvenOdd(a);
+
+// console.log(a);
+
+// console.log(e.next.val);
+// console.log(b.next.val);
+// console.log(c.next.val);
+
+
+
+function optimizedLinkListEvenOdd(rootNode) {
+  let rootOddNode = rootNode.next;
+
+  let evenNode = rootNode;
+  let oddNode = rootNode.next;
+
+  while (evenNode || oddNode) {
+
+    if (evenNode.next) {
+      evenNode.next = evenNode.next.next;
+      evenNode = evenNode.next;
+    } else {
+      evenNode = undefined;
+    }
+
+    if (oddNode.next) {
+      oddNode.next = oddNode.next.next;
+      oddNode = oddNode.next;
+    } else {
+      oddNode = undefined;
+    }
+
+  }
+
+
+}
 
 console.log(a);
 
+optimizedLinkListEvenOdd(a);
+
 console.log(e.next.val);
 console.log(b.next.val);
-// console.log(c.next.val);
