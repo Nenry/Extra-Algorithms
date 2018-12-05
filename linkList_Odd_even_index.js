@@ -77,25 +77,42 @@ d.next = e;
 
 
 function optimizedLinkListEvenOdd(rootNode) {
+  //O(n) in terms of space complexity
+  // O(n) in terms of time complexity since each node is only visited once
+
+
   let rootOddNode = rootNode.next;
 
   let evenNode = rootNode;
   let oddNode = rootNode.next;
 
+  // while there is a node 
   while (evenNode || oddNode) {
+  
+    if (evenNode) {
+      if (evenNode.next) {
 
-    if (evenNode.next) {
-      evenNode.next = evenNode.next.next;
-      evenNode = evenNode.next;
-    } else {
-      evenNode = undefined;
-    }
+        evenNode.next = evenNode.next.next;
+        evenNode = evenNode.next;
+      } else {
+        //this means all the even indexes are found and reconfigured
+        //next to is to combine with the odd linklist's root, which would be the '1' index of the link list
+        evenNode.next = rootOddNode;
+        evenNode = undefined;
+      }
 
-    if (oddNode.next) {
-      oddNode.next = oddNode.next.next;
-      oddNode = oddNode.next;
-    } else {
-      oddNode = undefined;
+    } 
+  
+    //if oddNode is not undefined
+    if (oddNode) {
+        //if the oddNode.next is not undefined then it must mean theres another node 
+        if (oddNode.next) {
+
+          oddNode.next = oddNode.next.next;
+          oddNode = oddNode.next;
+        } else {
+          oddNode = undefined;
+        }
     }
 
   }
@@ -103,9 +120,18 @@ function optimizedLinkListEvenOdd(rootNode) {
 
 }
 
-console.log(a);
+// console.log(a);
 
 optimizedLinkListEvenOdd(a);
 
-console.log(e.next.val);
-console.log(b.next.val);
+console.log(a);
+console.log(a.next);
+console.log(a.next.next);
+console.log(a.next.next.next);
+// console.log(b);
+// console.log(b.next);
+// console.log(b.next.next);
+// console.log(b.next.next.next);
+
+// console.log(e.next.val);
+// console.log(b.next.val);
