@@ -30,6 +30,7 @@ class Double_Linked_List
   end 
 
   def set_tail(node)
+    
     if @tail 
       old_tail = @tail
       @tail = node 
@@ -38,8 +39,9 @@ class Double_Linked_List
     else 
       @tail = node
     end 
+
   end 
 
 
-  
+
 end 
