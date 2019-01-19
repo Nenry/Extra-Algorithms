@@ -49,7 +49,6 @@ function iterClosestBSTValueHelper(tree, target, closest) {
     } else if (currentNode.value < target) {
       currentNode =currentNode.right;
     } else {
-       console.log('hello');
       break;
     }
     
@@ -79,3 +78,20 @@ function findClosestValueInBstHelperK(tree, target, closest) {
 
   return closest;
 }
+
+
+function whileCheck() {
+
+let i = 5;
+
+while (i) {
+  i++;
+  if (i > 5) {
+    return i;
+  }
+}
+console.log('should not show up');
+}
+
+
+console.log(whileCheck());

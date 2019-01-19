@@ -6,7 +6,9 @@
 // what is the range?
 // base cases
 
-function fib(n) {
+//time complexity is O(2^n)
+//space complexity is O(n) since a recursive call stack needs to have n times
+function fib(n) { 
   if (n === 0 ) {
     return 0;
   } else if (n === 1) {
@@ -17,11 +19,14 @@ function fib(n) {
 
 }
 
-console.log(fib(0));
-console.log(fib(1));
-console.log(fib(5));
-console.log(fib(6));
-console.log(fib(7));
-console.log(fib(8));
-console.log(fib(9));
-console.log(fib(10));
+// fib using memomization
+
+function getNthFib(n, memoize = {1: 0, 2: 1}) {
+    //make sure to do n in memoize because if memoize[1] === 0 === false
+  if (n in memoize) {
+    return memoize[n];
+  } else {
+    memoize[n] = getNthFib((n - 1), memoize) + getNthFib((n - 2), memoize);
+    return memoize[n];
+  }
+}
