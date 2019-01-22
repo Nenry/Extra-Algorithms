@@ -1,3 +1,4 @@
+
 //find nth fibonacci 
 //fibonacci is the last two numbers added together
 // [0, 1, 1, 2]
@@ -21,6 +22,8 @@ function fib(n) {
 
 // fib using memomization
 
+//time complexity is O(n) since all fibonnaci will be calculated down from n to 1 ONCE. The other calls of recursion fib will have O(1) access due to memoization
+// space will be O(n) due to the recursive calls
 function getNthFib(n, memoize = {1: 0, 2: 1}) {
     //make sure to do n in memoize because if memoize[1] === 0 === false
   if (n in memoize) {
@@ -29,4 +32,11 @@ function getNthFib(n, memoize = {1: 0, 2: 1}) {
     memoize[n] = getNthFib((n - 1), memoize) + getNthFib((n - 2), memoize);
     return memoize[n];
   }
+}
+
+//fib with constant space
+
+function getNthFib(n) {
+
+
 }
