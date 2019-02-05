@@ -21,7 +21,7 @@ function twoNumberSum(array, targetSum) {
 
 function improvedTwoSum(array, targetSum) {
   //sort the array
-  // TIME COMPLEXITY IS  
+  // TIME COMPLEXITY IS  O(nlogn) because of sorting. While loop is n, bu
   array = array.sort((a, b) => a - b);
   
   let leftPointer = 0;
