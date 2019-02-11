@@ -4,10 +4,46 @@ const test2 = new Promise(function(resolve, reject) {
   resolve('hello');
 });
 
-test2.then(res => console.log(res));
+// test2.then(res => console.log(res));
+
+let promiseToCleanTheRoom = new Promise(function(resolve, reject) {
+  let isClean = false;
+
+  if (isClean) {
+    resolve('clean');
+  } else {
+    reject('not clean');
+  }
+});
+
+promiseToCleanTheRoom.then(resp => {
+  console.log('The room is ' + resp);
+}).catch(err => console.log(err));
 
 
+let cleanRoom = function() {
+  return new Promise((resolve, reject) => {
+    resolve('Cleaned The Room');
+  });
+};
 
+let removeGarbage = function(message) {
+  return new Promise((resolve, reject) => {
+    resolve(message + ' remove Garbage');
+
+  });
+};
+
+let winIceCream = function(message) {
+  return new Promise((resolve, reject) => {
+    resolve(message + ' won Ice Cream');
+  });
+};
+
+// cleanRoom().then((resp) => removeGarbage(resp)).then((resp) => winIceCream(resp)).then((resp) => console.log('finished ' + resp));
+Promise.all([cleanRoom(), removeGarbage(), winIceCream()]).then(() => {
+  console.log('all finished');
+});
 
 // function test() {
 //   return(
