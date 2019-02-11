@@ -29,4 +29,52 @@ function qs(array, startIdx = 0, length = array.length) {
 }
 
 
-console.log(qs([2, 6, 5, 8, 1, 67, 0, 3, 23]));
+// console.log(qs([2, 6, 5, 8, 1, 67, 0, 3, 23]));
+
+function quickSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+
+  let pivot = arr[0];
+  let left = arr.slice(1, arr.length).filter((el) => el < pivot);
+  let right = arr.slice(1, arr.length).filter((el) => el > pivot);
+  
+  let sorted = quickSort(left).concat(pivot).concat(quickSort(right));
+  
+  return sorted;
+  
+  
+}
+
+console.log(quickSort([2, 6, 5, 8, 1, 67, 0, 3, 23]));
+
+function inPlaceQS(arr, startIdx = 0, length = arr.length) {
+  if (length < 2) {
+    return arr; 
+  }
+
+  let pivot = arr[startIdx];
+  let barrier = startIdx;
+  for (let i = startIdx + 1; i <= length + startIdx; i++) {
+    if (arr[i] < pivot) {
+      barrier++;
+      let temp = arr[barrier];
+      arr[barrier] = arr[i];
+      arr[i] = temp;
+    }
+  }
+  
+  arr[startIdx] = arr[barrier];
+  arr[barrier] = pivot;
+  
+  let leftLength = barrier - startIdx;
+  let rightLength = length - (leftLength + 1);
+  inPlaceQS(arr, 0, leftLength);
+  inPlaceQS(arr, barrier + 1, rightLength);
+ 
+  return arr;
+}
+
+console.log(inPlaceQS([2, 6, 5, 8, 1, 67, 0, 3, 23]));
+

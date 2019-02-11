@@ -6,32 +6,32 @@
 
 
 // (1) Create a low pointer at the beginning of the array and a high pointer at the end of the array.
-//   (2) Create a mid pointer that starts at the beginning of the array and iterates through each element.
-//   (3) If the element at arr[mid] is a 2, then swap arr[mid] and arr[high] and decrease the high pointer by 1.
-// (4) If the element at arr[mid] is a 0, then swap arr[mid] and arr[low] and increase the low and mid pointers by 1.
-// (5) If the element at arr[mid] is a 1, don 't swap anything and just increase the mid pointer by 1.
+//   (2) Create a i pointer that starts at the beginning of the array and iterates through each element.
+//   (3) If the element at arr[i] is a 2, then swap arr[i] and arr[high] and decrease the high pointer by 1.
+// (4) If the element at arr[i] is a 0, then swap arr[i] and arr[low] and increase the low and i pointers by 1.
+// (5) If the element at arr[i] is a 1, don 't swap anything and just increase the i pointer by 1.
 
 
 
 function dutchNationalFlag(arr) {
     let lowPointer = 0;
     let highPointer = arr.length - 1;
-    let midPointer = 0;
+    let i = 0;
     
-    while (midPointer < highPointer) {
-      if (arr[midPointer] === 2) {
-        let temp = arr[midPointer];
-        arr[midPointer] = arr[highPointer];
+    while (i < highPointer) {
+      if (arr[i] === 2) {
+        let temp = arr[i];
+        arr[i] = arr[highPointer];
         arr[highPointer] = temp;
         highPointer--;
-      } else if (arr[midPointer] === 0) {
-        let temp = arr[midPointer];
-        arr[midPointer] = arr[lowPointer];
+      } else if (arr[i] === 0) {
+        let temp = arr[i];
+        arr[i] = arr[lowPointer];
         arr[lowPointer] = temp;
         lowPointer++;
-        midPointer++;
-      } else if (arr[midPointer] === 1) {
-        midPointer++;
+        i++;
+      } else if (arr[i] === 1) {
+        i++;
       }
     }
 
