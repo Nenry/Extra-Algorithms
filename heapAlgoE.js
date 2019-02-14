@@ -62,12 +62,17 @@ class MinHeap {
   }
 
   peek() {
-    // return the first one in the array
+    return this.heap[0];
   }
 
   remove() {
     // swap first and last element. pop off last element 
     //heapify down
+    let temp = this.heap[0];
+    this.heap[0] = this.heap[this.heap.length - 1];
+    let removed = this.heap.pop();
+    this.siftDown(0, this.heap);
+    return removed;
   }
 
   insert(value) {
