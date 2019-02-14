@@ -37,6 +37,8 @@
 // }
 
 
+//Time Complexity is O(n) since we ierate through the arr
+// Space Complexity is O(1) since space is not dependent on input.
 
 function maxSubsetSumNoAdjacent(arr) {
   let secondToLast = arr[0]; 
