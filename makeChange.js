@@ -16,6 +16,8 @@
 // we can use base case for value(index) 0 is 1. Since the only way to get that is to not use any of them. That is one way
 // since every denomination we use, we should subtract from that amount, 
 // at that valueArray[value] += valueArray[value - denom], it will key into that array where we could use the previous counts, this will by the 'dynamic part'
+// we want to iterate through each denom in sorted order, then iterate through the denoms and test against each value in the valueArray
+// nested loop
 //when value/index === 1, valueArray[1] += valueArray[1 - 1], value[0] is 1, which is true
 // since there is only one way to get a value of 1 with coin 1, since we evaluate every combination at each value, we will be able to the previous values
 
