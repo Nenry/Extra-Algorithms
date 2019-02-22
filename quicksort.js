@@ -78,3 +78,16 @@ function inPlaceQS(arr, startIdx = 0, length = arr.length) {
 
 console.log(inPlaceQS([2, 6, 5, 8, 1, 67, 0, 3, 23]));
 
+
+
+function inPlaceQS(arr) {
+  let pivot = arr[0];
+
+
+  if (arr.length < 2) {
+    return arr;
+  }
+
+
+
+}

@@ -9,31 +9,19 @@
 
 // Overall TimeComplexity is O(n)
 // Space is O(n) since maxSums is created
-// function maxSubsetSumNoAdjacent(array) {
-//   if (array.length < 1) {
-//     return 0;
-//   } else if (array.length === 1) {
-//     return array[0];
-//   }
+// function maxSubsetSumNoAdjacent(arr) {
+//   const maxSums = [];
+//   maxSums.push(arr[0]);
+//   maxSums[1] = Math.max(arr[0], arr[1]);
+//   // console.log(maxSums);
+//   for (let i = 2; i < arr.length; i++) {
+//     let posSum = maxSums[i - 2] + arr[i];
+//     let currSum = maxSums[i - 1];
 
-//   const maxSums = [array[0], array[1]];
-   
-//         i= 2 i < 6
-//   for (let i = 2; i < array.length; i++) {
-//     let oldMax = maxSums[i - 1];
-//     let posMax = maxSums[i - 2] + array[i];
-
-//     let newMax = Math.max(oldMax, posMax);
-
-//     maxSums.push(newMax);
+//     maxSums[i] = Math.max(posSum, currSum);
 
 //   }
-
-//   console.log(maxSums);
-
-//   return maxSums[array.length - 1];
-
-
+//   return maxSums[arr.length - 1];
 // }
 
 
@@ -41,24 +29,27 @@
 // Space Complexity is O(1) since space is not dependent on input.
 
 function maxSubsetSumNoAdjacent(arr) {
-  let secondToLast = arr[0]; 
-  let lastSum = arr[1];
-  
-  //  O(1)
+  let twoAwaySum = arr[0];
+  let oneAwaySum = Math.max(arr[0], arr[1]);
 
   for (let i = 2; i < arr.length; i++) {
-    let tempSum = secondToLast + arr[i]; 
-    if (tempSum > lastSum) {
-      secondToLast = lastSum;
-      lastSum = tempSum;
+    let posSum = twoAwaySum + arr[i];
+    let oldSum = oneAwaySum;
+    if (posSum > oldSum) {
+      twoAwaySum = oneAwaySum;
+      oneAwaySum = posSum;
     } else {
-      secondToLast = lastSum;
+      twoAwaySum = oneAwaySum;
     }
+
   }
-
-  return lastSum;
-
+  return oneAwaySum;
 }
 
+
+
+
+
 console.log(maxSubsetSumNoAdjacent([75, 105, 120, 75, 90, 135]));
+console.log(maxSubsetSumNoAdjacent([5, 3, 19, 100]));
 
